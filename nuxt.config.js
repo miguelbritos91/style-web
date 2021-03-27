@@ -7,10 +7,10 @@ export default {
   },
   target: 'static',
   router: {
-    base: '/style-web/'
+    base: '/'
   },
   env: {
-    prod: false,
+    prod: true,
     baseUrl: process.env.prod ? 'https://style-web.net' : 'http://localhost:3000',
     mailServer: 'styleweb.net@gmail.com'
   },
