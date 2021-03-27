@@ -1,6 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  mode: 'universal',
+  server: {
+    port: 3000
+  },
+  env: {
+    prod: false,
+    baseUrl: process.env.prod ? 'https://style-web.net' : 'http://localhost:3000',
+    mailServer: 'styleweb.net@gmail.com'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - style-web',
@@ -43,7 +52,20 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // Configuración de servidor SMTP para envio de e-mail
+    ['nuxt-mail', {
+      smtp: {
+        service: 'Gmail',
+        auth: {
+          user: 'styleweb.net@gmail.com',
+          pass: 'Mateo21@17'
+        },
+        tls: {
+          rejectUnauthorized: false
+        }
+      }
+    }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -66,6 +88,15 @@ export default {
         }
       }
     }
+  },
+
+  recaptcha: {
+    hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
+    // language: String, // Recaptcha language (v2)
+    // siteKey: '6Ldae-YZAAAAAGdblCOzBDgcWy6HRb0qD16Pwl2w', // Site key for requests
+    siteKey: '6LcqkJEaAAAAALfuuYpFIpFnvjAA-LV-wLWfhHf3',
+    version: 3, // Version
+    size: 'invisible' // Size: 'compact', 'normal', 'invisible' (v2)
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
