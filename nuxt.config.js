@@ -100,7 +100,7 @@ export default {
     // siteKey: '6Ldae-YZAAAAAGdblCOzBDgcWy6HRb0qD16Pwl2w', // Site key for requests
     siteKey: '6LcqkJEaAAAAALfuuYpFIpFnvjAA-LV-wLWfhHf3',
     version: 3, // Version
-    size: 'invisible' // Size: 'compact', 'normal', 'invisible' (v2)
+    size: 'normal' // Size: 'compact', 'normal', 'invisible' (v2)
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
