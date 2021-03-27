@@ -6,9 +6,6 @@ export default {
     port: 3000
   },
   target: 'static',
-  router: {
-    base: '/style-web/'
-  },
   env: {
     prod: false,
     baseUrl: process.env.prod ? 'https://style-web.net' : 'http://localhost:3000',
