@@ -3,7 +3,7 @@
     <nuxt-link to="/" class="logo" />
     <ul v-if="screen.width>992 || drawer" class="menu d-flex" :class="{'nav-mobile openMenu-animation bg-dark flex-column': drawer && screen.width<993, 'openMenu-animation': !drawer && screen.width<993}">
       <li class="item-menu">
-        <nuxt-link to="/" class="font-montserrat">
+        <nuxt-link to="/" exact class="font-montserrat">
           Inicio
         </nuxt-link>
       </li>
@@ -18,7 +18,7 @@
         </nuxt-link>
       </li>
       <li class="item-menu">
-        <nuxt-link to="/tecnologías" class="font-montserrat">
+        <nuxt-link to="/tecnologias" class="font-montserrat">
           Tecnologías
         </nuxt-link>
       </li>
