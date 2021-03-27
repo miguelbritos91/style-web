@@ -2,3 +2,21 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+.fixed-top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.w-100{
+    width: 100%;
+}
+.font-montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.font-rubik{
+    font-family: 'Rubik', sans-serif;
+}
+.font-raleway{
+    font-family: 'Raleway', sans-serif;
+}
