@@ -133,6 +133,7 @@ export default {
       const validate = this.$refs.form.validate()
       if (validate) {
         this.onSubmit()
+        this.sendMail()
       } else {
         this.toats = true
         setTimeout(() => {
@@ -196,7 +197,7 @@ export default {
       </body>`
 
       // Envio de email admin
-      await this.$axios.$post('/mail/send', {
+      await this.$axios.$post('api/mail/send', {
         from: 'style-web <' + mailServer + '>',
         subject: 'Nuevo Contacto de styleweb.net',
         html: templeteAdmin,
@@ -206,7 +207,7 @@ export default {
           console.log(resp)
           if (resp === 'OK') {
             // Envio de mail de confirmacion al usuario
-            const confirm = await this.$axios.$post('/mail/send', {
+            const confirm = await this.$axios.$post('api/mail/send', {
               from: 'style-web <' + mailServer + '>',
               subject: 'Hemos recibido tu consulta',
               html: templateUser,
