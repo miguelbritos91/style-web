@@ -69,7 +69,8 @@ export default {
           rejectUnauthorized: false
         }
       }
-    }]
+    }],
+    '@nuxtjs/recaptcha'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -97,7 +98,7 @@ export default {
   recaptcha: {
     hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
     // language: String, // Recaptcha language (v2)
-    siteKey: '6LcqkJEaAAAAALfuuYpFIpFnvjAA-LV-wLWfhHf3',
+    siteKey: '6Lf50ZEaAAAAAN5vS_thTVvpOFl8YUZTgbhJTIt4',
     version: 3, // Version
     size: 'normal' // Size: 'compact', 'normal', 'invisible' (v2)
   },
