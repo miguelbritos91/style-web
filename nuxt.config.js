@@ -10,8 +10,8 @@ export default {
     base: '/'
   },
   env: {
-    prod: true,
-    baseUrl: process.env.prod ? 'https://style-web.net' : 'http://localhost:3000',
+    // baseUrl: 'https://localhost:3000',
+    baseUrl: 'https://style-web.net',
     mailServer: 'styleweb.net@gmail.com'
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
