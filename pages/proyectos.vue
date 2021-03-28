@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-dark on-dev">
     <h1>proyectos</h1>
   </div>
 </template>
