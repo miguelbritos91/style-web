@@ -125,11 +125,8 @@ export default {
     try {
       await this.$recaptcha.init()
     } catch (e) {
-      console.error(e)
+      console.log(e)
     }
-  },
-  beforeDestroy () {
-    this.$recaptcha.destroy()
   },
   methods: {
     validate () {
