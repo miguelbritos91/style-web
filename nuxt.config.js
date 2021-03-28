@@ -82,8 +82,8 @@ export default {
 
   proxy: {
     '/': {
-      target: '',
-      pathRewrite: { 'https://stylewebnet.herokuapp.com': '/' },
+      target: 'https://stylewebnet.herokuapp.com',
+      pathRewrite: { '/': '/' },
       changeOrigin: true
     }
   },
