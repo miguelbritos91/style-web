@@ -1,13 +1,13 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
   server: {
     port: process.env.PORT || 3000
   },
   env: {
     // baseUrl: 'https://localhost:3000',
-    baseUrl: 'https://style-web.net',
+    baseUrl: 'https://stylewebnet.herokuapp.com/',
     mailServer: 'styleweb.net@gmail.com'
   },
   // Global page headers: https://go.nuxtjs.dev/config-head

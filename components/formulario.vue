@@ -132,7 +132,7 @@ export default {
     validate () {
       const validate = this.$refs.form.validate()
       if (validate) {
-        this.sendMail()
+        this.onSubmit()
       } else {
         this.toats = true
         setTimeout(() => {
