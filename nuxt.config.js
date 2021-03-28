@@ -5,7 +5,6 @@ export default {
   server: {
     port: 3000
   },
-  target: 'static',
   router: {
     base: '/'
   },
@@ -57,6 +56,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/recaptcha',
     // Configuración de servidor SMTP para envio de e-mail
     ['nuxt-mail', {
       smtp: {
@@ -64,13 +64,9 @@ export default {
         auth: {
           user: 'styleweb.net@gmail.com',
           pass: 'Mateo21@17'
-        },
-        tls: {
-          rejectUnauthorized: false
         }
       }
-    }],
-    '@nuxtjs/recaptcha'
+    }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
