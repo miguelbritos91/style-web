@@ -121,6 +121,16 @@ export default {
       screen: state => state._screenView
     })
   },
+  async mounted () {
+    try {
+      await this.$recaptcha.init()
+    } catch (e) {
+      console.error(e)
+    }
+  },
+  beforeDestroy () {
+    this.$recaptcha.destroy()
+  },
   methods: {
     validate () {
       const validate = this.$refs.form.validate()
@@ -135,7 +145,7 @@ export default {
     },
     async onSubmit () {
       try {
-        const token = await this.$recaptcha.execute('contact')
+        const token = await this.$recaptcha.execute('contacto')
         console.log('ReCaptcha token:', token)
         await this.sendMail()
         await this.$recaptcha.reset()
