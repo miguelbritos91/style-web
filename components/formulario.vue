@@ -146,7 +146,7 @@ export default {
         console.log('ReCaptcha token:', token)
         await this.sendMail()
         await this.$recaptcha.reset()
-      } catch (error) {
+      } catch (e) {
         this.toats = true
         this.error = true
         this.errorMessage = 'Error al validar Recaptcha'
