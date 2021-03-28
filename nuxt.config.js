@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   mode: 'spa',
   server: {
-    port: 3000
+    port: process.env.PORT || 3000
   },
   env: {
     // baseUrl: 'https://localhost:3000',
