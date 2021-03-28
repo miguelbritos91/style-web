@@ -106,7 +106,7 @@ export default {
         v => !!v || 'El mensaje es requerido'
       ],
       message: '',
-      baseURL: process.env.baseUrl,
+      // baseURL: process.env.baseUrl,
       mailserver: process.env.mailServer,
       sending: false,
       sended: false,
@@ -196,7 +196,7 @@ export default {
       </body>`
 
       // Envio de email admin
-      await this.$axios.$post(this.baseURL + '/mail/send', {
+      await this.$axios.$post('/mail/send', {
         from: 'style-web <' + mailServer + '>',
         subject: 'Nuevo Contacto de styleweb.net',
         html: templeteAdmin,
@@ -206,7 +206,7 @@ export default {
           console.log(resp)
           if (resp === 'OK') {
             // Envio de mail de confirmacion al usuario
-            const confirm = await this.$axios.$post(this.baseURL + '/mail/send', {
+            const confirm = await this.$axios.$post('/mail/send', {
               from: 'style-web <' + mailServer + '>',
               subject: 'Hemos recibido tu consulta',
               html: templateUser,

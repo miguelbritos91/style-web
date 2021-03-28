@@ -10,7 +10,7 @@ export default {
   },
   env: {
     // baseUrl: 'https://localhost:3000',
-    baseUrl: 'https://stylewebnet.herokuapp.com',
+    // baseUrl: 'https://stylewebnet.herokuapp.com',
     // baseUrl: 'https://style-web.net',
     mailServer: 'styleweb.net@gmail.com'
   },
@@ -58,6 +58,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/recaptcha',
+    '@nuxtjs/proxy',
     // Configuración de servidor SMTP para envio de e-mail
     ['nuxt-mail', {
       smtp: {
@@ -75,8 +76,17 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    proxy: true
+  },
 
+  proxy: {
+    '/': {
+      target: '',
+      pathRewrite: { 'https://stylewebnet.herokuapp.com': '/' },
+      changeOrigin: true
+    }
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
