@@ -5,6 +5,9 @@ export default {
   server: {
     port: process.env.PORT || 3000
   },
+  router: {
+    base: '/'
+  },
   env: {
     // baseUrl: 'https://localhost:3000',
     baseUrl: 'https://stylewebnet.herokuapp.com',
