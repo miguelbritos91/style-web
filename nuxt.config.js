@@ -7,7 +7,8 @@ export default {
   },
   env: {
     // baseUrl: 'https://localhost:3000',
-    baseUrl: 'https://stylewebnet.herokuapp.com',
+    // baseUrl: 'https://stylewebnet.herokuapp.com',
+    baseUrl: 'https://style-web.net',
     mailServer: 'styleweb.net@gmail.com'
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
