@@ -5,9 +5,6 @@ export default {
   server: {
     port: 3000
   },
-  router: {
-    base: '/'
-  },
   env: {
     // baseUrl: 'https://localhost:3000',
     baseUrl: 'https://style-web.net',
