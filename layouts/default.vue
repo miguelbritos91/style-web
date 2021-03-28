@@ -37,9 +37,11 @@ export default {
   mounted () {
     window.onresize = this.setScreen
     this.setScreen()
-    setTimeout(() => {
-      this.load = true
-    }, 500)
+    window.onload = () => {
+      setTimeout(() => {
+        this.load = true
+      }, 7000)
+    }
   },
   methods: {
     ...mapMutations({

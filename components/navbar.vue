@@ -2,32 +2,32 @@
   <div class="navigation d-flex w-100 align-center justify-space-between" :class="{'bg-dark': scrollTop>0, 'open-menu': drawer && screen.width<993 }">
     <nuxt-link to="/" class="logo" />
     <ul v-if="screen.width>992 || drawer" class="menu d-flex" :class="{'nav-mobile openMenu-animation bg-dark flex-column': drawer && screen.width<993, 'openMenu-animation': !drawer && screen.width<993}">
-      <li class="item-menu">
+      <li class="item-menu" @click="openMenuMobile()">
         <nuxt-link to="/" exact class="font-montserrat">
           Inicio
         </nuxt-link>
       </li>
-      <li class="item-menu">
+      <li class="item-menu" @click="openMenuMobile()">
         <nuxt-link to="/nosotros" class="font-montserrat">
           Nosotros
         </nuxt-link>
       </li>
-      <li class="item-menu">
+      <li class="item-menu" @click="openMenuMobile()">
         <nuxt-link to="/servicios" class="font-montserrat">
           Servicios
         </nuxt-link>
       </li>
-      <li class="item-menu">
+      <li class="item-menu" @click="openMenuMobile()">
         <nuxt-link to="/tecnologias" class="font-montserrat">
           Tecnologías
         </nuxt-link>
       </li>
-      <li class="item-menu">
+      <li class="item-menu" @click="openMenuMobile()">
         <nuxt-link to="/proyectos" class="font-montserrat">
           Proyectos
         </nuxt-link>
       </li>
-      <li class="item-menu">
+      <li class="item-menu" @click="openMenuMobile()">
         <nuxt-link to="/contacto" class="font-montserrat">
           Contacto
         </nuxt-link>
@@ -70,11 +70,13 @@ export default {
       this.scrollTop = window.scrollY
     },
     openMenuMobile () {
-      this.drawer = !this.drawer
-      if (this.drawer) {
-        document.documentElement.style.overflowY = 'hidden'
-      } else {
-        document.documentElement.style.overflowY = 'auto'
+      if (this.screen.width < 993) {
+        this.drawer = !this.drawer
+        if (this.drawer) {
+          document.documentElement.style.overflowY = 'hidden'
+        } else {
+          document.documentElement.style.overflowY = 'auto'
+        }
       }
     }
   }
