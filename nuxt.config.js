@@ -58,9 +58,13 @@ export default {
     ['nuxt-mail', {
       smtp: {
         service: 'Gmail',
+        secure: true,
         auth: {
           user: 'styleweb.net@gmail.com',
           pass: 'Mateo21@17'
+        },
+        tls: {
+          rejectUnauthorized: false
         }
       }
     }]
