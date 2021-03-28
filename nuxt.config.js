@@ -81,7 +81,7 @@ export default {
   },
 
   proxy: {
-    '/': {
+    '/api': {
       target: 'https://stylewebnet.herokuapp.com',
       pathRewrite: { '/': '/' },
       changeOrigin: true
