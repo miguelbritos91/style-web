@@ -196,25 +196,25 @@ export default {
         </div>
       </body>`
 
-      this.$axios.setHeader('Access-Control-Allow-Origin', '*')
+      const qs = require('qs')
 
       // Envio de email admin
-      await this.$axios.$post('https://stylewebnet.herokuapp.com/mail/send', {
+      await this.$axios.$post('https://stylewebnet.herokuapp.com/mail/send', qs.stringify({
         from: 'style-web <' + mailServer + '>',
         subject: 'Nuevo Contacto de styleweb.net',
         html: templeteAdmin,
         to: this.emailTo
-      })
+      }))
         .then(async (resp) => {
           console.log(resp)
           if (resp === 'OK') {
             // Envio de mail de confirmacion al usuario
-            const confirm = await this.$axios.$post('https://stylewebnet.herokuapp.com/mail/send', {
+            const confirm = await this.$axios.$post('https://stylewebnet.herokuapp.com/mail/send', qs.stringify({
               from: 'style-web <' + mailServer + '>',
               subject: 'Hemos recibido tu consulta',
               html: templateUser,
               to: form.email
-            })
+            }))
             console.log(confirm)
             this.sended = true
           }
