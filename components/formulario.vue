@@ -196,6 +196,8 @@ export default {
         </div>
       </body>`
 
+      this.$axios.setHeader('Access-Control-Allow-Origin', '*')
+
       // Envio de email admin
       await this.$axios.$post('https://stylewebnet.herokuapp.com/mail/send', {
         from: 'style-web <' + mailServer + '>',
