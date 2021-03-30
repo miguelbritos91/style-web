@@ -133,7 +133,7 @@ export default {
       const validate = this.$refs.form.validate()
       if (validate) {
         this.onSubmit()
-        this.sendMail()
+        // this.sendMail()
       } else {
         this.toats = true
         setTimeout(() => {
@@ -164,8 +164,6 @@ export default {
     async sendMail () {
       this.sending = true
 
-      const mailServer = this.mailserver
-
       const form = {
         name: this.name,
         email: this.email,
@@ -173,56 +171,18 @@ export default {
         message: this.message
       }
 
-      const templeteAdmin = `
-      <body>
-        <div>
-            <p>Un nuevo usuario se ha contactado desde la web</p>
-            <p>Datos de contacto:</p>
-            <ul>
-                <li>Nombre y apellido: ${form.name}</li>
-                <li>Teléfono: ${form.phone}</li>
-                <li>Email: ${form.email}</li>
-                <li>Mensaje: ${form.message}</li>
-            </ul>
-        </div>
-      </body>`
-
-      const templateUser = `
-      <body>
-        <div>
-            <p>¡Gracias por comunicarte con nosotros!</p>
-            <p>En breve nos estaremos contactando.</p>
-            <p>Que tengas un buen dia, saludos.</p>
-        </div>
-      </body>`
-
-      const qs = require('qs')
-
       // Envio de email admin
-      await this.$axios.$post('https://stylewebnet.herokuapp.com/mail/send', qs.stringify({
-        from: 'style-web <' + mailServer + '>',
-        subject: 'Nuevo Contacto de styleweb.net',
-        html: templeteAdmin,
-        to: this.emailTo
-      }))
-        .then(async (resp) => {
+      await this.$axios.$post('https://mailservernet.herokuapp.com/mail/send', form)
+        .then((resp) => {
           console.log(resp)
-          if (resp === 'OK') {
-            // Envio de mail de confirmacion al usuario
-            const confirm = await this.$axios.$post('https://stylewebnet.herokuapp.com/mail/send', qs.stringify({
-              from: 'style-web <' + mailServer + '>',
-              subject: 'Hemos recibido tu consulta',
-              html: templateUser,
-              to: form.email
-            }))
-            console.log(confirm)
+          if (resp.status === 200) {
             this.sended = true
           }
         })
         .catch((e) => {
           console.log(e)
           this.error = true
-          if (e.response.status === 500 || e.response.status === '500') {
+          if (e.status === 500 || e.status === '500') {
             this.errorMessage = 'Error interno del servidor'
           } else {
             this.errorMessage = '¡Error! Vuelva a intentar'
