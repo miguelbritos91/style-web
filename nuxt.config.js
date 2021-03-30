@@ -8,12 +8,7 @@ export default {
   router: {
     base: '/'
   },
-  env: {
-    // baseUrl: 'https://localhost:3000',
-    // baseUrl: 'https://stylewebnet.herokuapp.com',
-    // baseUrl: 'https://style-web.net',
-    mailServer: 'styleweb.net@gmail.com'
-  },
+  env: {},
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - style-web',
@@ -57,36 +52,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/recaptcha',
-    '@nuxtjs/proxy',
-    // Configuración de servidor SMTP para envio de e-mail
-    ['nuxt-mail', {
-      smtp: {
-        service: 'Gmail',
-        secure: true,
-        auth: {
-          user: 'styleweb.net@gmail.com',
-          pass: 'hvziuphlnlnvbovj'
-        },
-        tls: {
-          rejectUnauthorized: false
-        }
-      }
-    }]
+    '@nuxtjs/recaptcha'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    proxy: true
-  },
+  axios: {},
 
-  proxy: {
-    '/api': {
-      target: 'https://stylewebnet.herokuapp.com',
-      pathRewrite: { '^/api/': '/' },
-      changeOrigin: true
-    }
-  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

@@ -14,11 +14,9 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/recaptcha": "^1.0.4",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12",
-    "nuxt-mail": "^1.0.15"
+    "nuxt": "^2.14.12"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

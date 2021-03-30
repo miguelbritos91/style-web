@@ -133,7 +133,6 @@ export default {
       const validate = this.$refs.form.validate()
       if (validate) {
         this.onSubmit()
-        // this.sendMail()
       } else {
         this.toats = true
         setTimeout(() => {
@@ -151,7 +150,7 @@ export default {
         this.toats = true
         this.error = true
         this.errorMessage = 'Error al validar Recaptcha'
-        console.log('Error al validar Recaptcha')
+        // console.log('Error al validar Recaptcha')
         setTimeout(() => {
           this.toats = false
         }, 5000)
@@ -174,13 +173,13 @@ export default {
       // Envio de email admin
       await this.$axios.$post('https://mailservernet.herokuapp.com/mail/send', form)
         .then((resp) => {
-          console.log(resp)
+          // console.log(resp)
           if (resp.status === 200) {
             this.sended = true
           }
         })
         .catch((e) => {
-          console.log(e)
+          // console.log(e)
           this.error = true
           if (e.status === 500 || e.status === '500') {
             this.errorMessage = 'Error interno del servidor'
